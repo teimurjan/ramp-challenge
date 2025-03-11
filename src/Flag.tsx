@@ -2,9 +2,9 @@ import TypeWriter from "./TypeWriter";
 
 // To capture the flag, go to https://tns4lpgmziiypnxxzel5ss5nyu0nftol.lambda-url.us-east-1.on.aws/challenge
 // and run
-// [...document.querySelectorAll('code div span i')].map(element => element.getAttribute('value')).join('')
+// [...document.querySelectorAll(section[data-id^="92"] > article[data-class$="45"] > div[data-tag*="78"] b.ref)].map(element => element.getAttribute('value')).join('')
 const FLAG_CAPTURED_URL =
-  "https://wgg522pwivhvi5gqsn675gth3q0otdja.lambda-url.us-east-1.on.aws/74726f";
+  "https://wgg522pwivhvi5gqsn675gth3q0otdja.lambda-url.us-east-1.on.aws/6b696e";
 
 const fetchFlag = () => {
   return fetch(FLAG_CAPTURED_URL).then((response) => response.text());
@@ -21,7 +21,7 @@ const promiseToResource = <T extends unknown>(promise: Promise<T>) => {
     (e) => {
       status = "error";
       result = e;
-    },
+    }
   );
 
   return {
@@ -41,7 +41,6 @@ const flagResource = promiseToResource(fetchFlag());
 
 const Flag = () => {
   const flag = flagResource.read();
-  console.log(flag);
   return flag ? <TypeWriter>{flag}</TypeWriter> : null;
 };
 
